@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdnnfppyhs3oy"]
+
+[ext_resource type="Texture2D" uid="uid://bjtqcchlmjt6k" path="res://assets/TopDownCityPack/Sprites/sCharacterIdle.png" id="1_a5671"]
+[ext_resource type="Script" path="res://characters/main_character.gd" id="1_rt7e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2iur"]
+size = Vector2(10, 25)
+
+[sub_resource type="Animation" id="Animation_am21y"]
+resource_name = "walk_right"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_omcs2"]
+_data = {
+"walk_right": SubResource("Animation_am21y")
+}
+
+[node name="MainCharacter" type="CharacterBody2D"]
+script = ExtResource("1_rt7e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a5671")
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_k2iur")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_omcs2")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
