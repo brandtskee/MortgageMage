@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cdnnfppyhs3oy"]
+[gd_scene load_steps=32 format=3 uid="uid://cdnnfppyhs3oy"]
 
 [ext_resource type="Script" path="res://characters/main_character.gd" id="1_rt7e3"]
 [ext_resource type="Texture2D" uid="uid://cdicfmhskcwb1" path="res://assets/Modern tiles_Free/Characters_free/Alex_16x16.png" id="2_btoyy"]
@@ -193,6 +193,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_31kk1")
 blend_point_3/pos = Vector2(1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c11rr"]
 animation = &"walk_down"
@@ -206,6 +207,18 @@ animation = &"walk_left"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b6xo1"]
 animation = &"walk_right"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wlhhx"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2dkxe"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x0u2l"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iq51k"]
+animation = &"walk_right"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_w0mp1"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_c11rr")
 blend_point_0/pos = Vector2(0, 1.1)
@@ -215,8 +228,17 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_gg0if")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_b6xo1")
 blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_wlhhx")
+blend_point_4/pos = Vector2(0, 1.1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_2dkxe")
+blend_point_5/pos = Vector2(0, -1.1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_x0u2l")
+blend_point_6/pos = Vector2(-1, 0)
+blend_point_7/node = SubResource("AnimationNodeAnimation_iq51k")
+blend_point_7/pos = Vector2(1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ptfek"]
 advance_mode = 0
@@ -259,5 +281,5 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_3yo48")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(0, 0)
+parameters/Idle/blend_position = Vector2(2.08165e-12, -0.1)
 parameters/walk/blend_position = Vector2(0, 0)
