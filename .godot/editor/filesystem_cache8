@@ -1,0 +1,100 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1709577636
+icon.svg::CompressedTexture2D::7423378608995811108::1709577479::1709577636::1::::<><>::
+README.md::TextFile::-1::1709577479::0::1::::<><>::
+::res://assets/::1709577484
+loanshark.png::CompressedTexture2D::7288602862839138697::1709577479::1709577636::1::::<><>::
+::res://assets/Modern tiles_Free/::1709577485
+free_overview.png::CompressedTexture2D::8838370450071407419::1709577479::1709577636::1::::<><>::
+LICENSE.txt::TextFile::-1::1709577479::0::1::::<><>::
+READ ME.txt::TextFile::-1::1709577479::0::1::::<><>::
+::res://assets/Modern tiles_Free/Characters_free/::1709577494
+Adam_16x16.png::CompressedTexture2D::8675192780086891350::1709577479::1709577636::1::::<><>::
+Adam_idle_16x16.png::CompressedTexture2D::5910981356267503114::1709577479::1709577636::1::::<><>::
+Adam_idle_anim_16x16.png::CompressedTexture2D::3594120095684653116::1709577479::1709577636::1::::<><>::
+Adam_phone_16x16.png::CompressedTexture2D::4001141142358373636::1709577479::1709577636::1::::<><>::
+Adam_run_16x16.png::CompressedTexture2D::8058149775710643995::1709577479::1709577636::1::::<><>::
+Adam_sit2_16x16.png::CompressedTexture2D::4463219355302861801::1709577479::1709577636::1::::<><>::
+Adam_sit3_16x16.png::CompressedTexture2D::7871271798398001882::1709577479::1709577636::1::::<><>::
+Adam_sit_16x16.png::CompressedTexture2D::5430153164117727270::1709577479::1709577636::1::::<><>::
+Alex_16x16.png::CompressedTexture2D::5000053925212972612::1709577479::1709577636::1::::<><>::
+Alex_idle_16x16.png::CompressedTexture2D::3419772646934977359::1709577479::1709577636::1::::<><>::
+Alex_idle_anim_16x16.png::CompressedTexture2D::4684426665832474203::1709577479::1709577636::1::::<><>::
+Alex_phone_16x16.png::CompressedTexture2D::5282792929692516408::1709577479::1709577636::1::::<><>::
+Alex_run_16x16.png::CompressedTexture2D::3424658408712381197::1709577479::1709577636::1::::<><>::
+Alex_sit2_16x16.png::CompressedTexture2D::4220998733358177050::1709577479::1709577636::1::::<><>::
+Alex_sit3_16x16.png::CompressedTexture2D::4847716161114573731::1709577479::1709577636::1::::<><>::
+Alex_sit_16x16.png::CompressedTexture2D::3706681346666614648::1709577479::1709577636::1::::<><>::
+Amelia_16x16.png::CompressedTexture2D::7920465944847000712::1709577479::1709577636::1::::<><>::
+Amelia_idle_16x16.png::CompressedTexture2D::874378848309240934::1709577479::1709577636::1::::<><>::
+Amelia_idle_anim_16x16.png::CompressedTexture2D::328282795260137604::1709577479::1709577636::1::::<><>::
+Amelia_phone_16x16.png::CompressedTexture2D::3569474061966403624::1709577479::1709577636::1::::<><>::
+Amelia_run_16x16.png::CompressedTexture2D::3829417893097957209::1709577479::1709577636::1::::<><>::
+Amelia_sit2_16x16.png::CompressedTexture2D::1476297471428122591::1709577479::1709577636::1::::<><>::
+Amelia_sit3_16x16.png::CompressedTexture2D::177434566997817215::1709577479::1709577636::1::::<><>::
+Amelia_sit_16x16.png::CompressedTexture2D::3982735654479416544::1709577479::1709577636::1::::<><>::
+Bob_16x16.png::CompressedTexture2D::6666830757012417303::1709577479::1709577636::1::::<><>::
+Bob_idle_16x16.png::CompressedTexture2D::8099530620874100941::1709577479::1709577636::1::::<><>::
+Bob_idle_anim_16x16.png::CompressedTexture2D::2606445679024445021::1709577479::1709577636::1::::<><>::
+Bob_phone_16x16.png::CompressedTexture2D::5776294102473476420::1709577479::1709577636::1::::<><>::
+Bob_run_16x16.png::CompressedTexture2D::4815449568074338257::1709577479::1709577636::1::::<><>::
+Bob_sit2_16x16.png::CompressedTexture2D::1863607925215643393::1709577479::1709577636::1::::<><>::
+Bob_sit3_16x16.png::CompressedTexture2D::4556143216350383291::1709577479::1709577636::1::::<><>::
+Bob_sit_16x16.png::CompressedTexture2D::872412101341742230::1709577479::1709577636::1::::<><>::
+::res://assets/Modern tiles_Free/Characters_free/RPGMAKERMV/::1709577495
+Characters_MV.png::CompressedTexture2D::7622572884956665004::1709577479::1709577636::1::::<><>::
+::res://assets/Modern tiles_Free/Interiors_free/::1709577485
+::res://assets/Modern tiles_Free/Interiors_free/16x16/::1709577496
+Interiors_free_16x16.png::CompressedTexture2D::8495074635031222366::1709577479::1709577636::1::::<><>::
+Room_Builder_free_16x16.png::CompressedTexture2D::5763852935873825819::1709577479::1709577636::1::::<><>::
+::res://assets/Modern tiles_Free/Interiors_free/32x32/::1709577495
+Interiors_free_32x32.png::CompressedTexture2D::5370460065476759175::1709577479::1709577636::1::::<><>::
+Room_Builder_free_32x32.png::CompressedTexture2D::4892812335491332432::1709577479::1709577636::1::::<><>::
+::res://assets/Modern tiles_Free/Interiors_free/48x48/::1709577495
+Interiors_free_48x48.png::CompressedTexture2D::8270895360903725535::1709577479::1709577636::1::::<><>::
+Room_Builder_free_48x48.png::CompressedTexture2D::6032447405980726629::1709577479::1709577636::1::::<><>::
+::res://assets/Modern tiles_Free/Old/::1709577495
+idle_16x16_2.png::CompressedTexture2D::2674863600995252041::1709577479::1709577636::1::::<><>::
+idle_32x32_2.png::CompressedTexture2D::2761365141698609564::1709577479::1709577636::1::::<><>::
+idle_48x48_2.png::CompressedTexture2D::3110191712979303524::1709577479::1709577636::1::::<><>::
+run_horizontal_16x16_2.png::CompressedTexture2D::793044073545519026::1709577479::1709577636::1::::<><>::
+run_horizontal_32x32_2.png::CompressedTexture2D::5480612450451328220::1709577479::1709577636::1::::<><>::
+run_horizontal_48x48_2.png::CompressedTexture2D::2458125770593788559::1709577479::1709577636::1::::<><>::
+Tileset_16x16_1.png::CompressedTexture2D::3068520706808604111::1709577479::1709577636::1::::<><>::
+Tileset_16x16_2.png::CompressedTexture2D::2912807918943653217::1709577479::1709577636::1::::<><>::
+Tileset_16x16_3.png::CompressedTexture2D::7072891431610885317::1709577479::1709577636::1::::<><>::
+Tileset_16x16_9.png::CompressedTexture2D::6446838553052138743::1709577479::1709577636::1::::<><>::
+Tileset_16x16_16.png::CompressedTexture2D::6563179790032737992::1709577479::1709577636::1::::<><>::
+Tileset_32x32_1.png::CompressedTexture2D::2628881026027483477::1709577479::1709577636::1::::<><>::
+Tileset_32x32_2.png::CompressedTexture2D::5828155831448215563::1709577479::1709577636::1::::<><>::
+Tileset_32x32_3.png::CompressedTexture2D::6205299015696295567::1709577479::1709577636::1::::<><>::
+Tileset_32x32_9.png::CompressedTexture2D::7716447490006445069::1709577479::1709577636::1::::<><>::
+Tileset_32x32_16.png::CompressedTexture2D::6914909187593523161::1709577479::1709577636::1::::<><>::
+Tileset_48x48_1.png::CompressedTexture2D::2687103881785018703::1709577479::1709577636::1::::<><>::
+Tileset_48x48_2.png::CompressedTexture2D::2734823175269889845::1709577479::1709577636::1::::<><>::
+Tileset_48x48_3.png::CompressedTexture2D::1014206739627634561::1709577479::1709577636::1::::<><>::
+Tileset_48x48_9.png::CompressedTexture2D::8212470791599489701::1709577479::1709577636::1::::<><>::
+Tileset_48x48_16.png::CompressedTexture2D::2659375497781295156::1709577479::1709577636::1::::<><>::
+::res://assets/Modern tiles_Free/Old/mv/::1709577496
+Character_2_16x16_RPGMAKER.png::CompressedTexture2D::7786979600737160587::1709577479::1709577636::1::::<><>::
+Character_2_32x32_RPGMAKER.png::CompressedTexture2D::766763830552869351::1709577479::1709577636::1::::<><>::
+Character_2_48x48_RPGMAKER.png::CompressedTexture2D::8263250457726043785::1709577479::1709577636::1::::<><>::
+::res://assets/TopDownCityPack/::1709577485
+Readme.txt::TextFile::-1::1709577479::0::1::::<><>::
+::res://assets/TopDownCityPack/Sprites/::1709577486
+sCharacterIdle.png::CompressedTexture2D::3058318613611135132::1709577479::1709577636::1::::<><>::
+sCharacterWalking.png::CompressedTexture2D::3566719643102959148::1709577479::1709577636::1::::<><>::
+sMockup.png::CompressedTexture2D::5293650511876480788::1709577479::1709577636::1::::<><>::
+sTiles.png::CompressedTexture2D::2455063971553813438::1709577479::1709577636::1::::<><>::
+::res://assets/TopDownCityPack/Sprites/Vehicles/::1709577495
+sBlueCar.png::CompressedTexture2D::4484167959992083931::1709577479::1709577636::1::::<><>::
+sBluePickup.png::CompressedTexture2D::3482136901377214851::1709577479::1709577636::1::::<><>::
+sGreenCar.png::CompressedTexture2D::8069254740856575129::1709577479::1709577636::1::::<><>::
+sGreenPickup.png::CompressedTexture2D::6955962049931508586::1709577479::1709577636::1::::<><>::
+sRedCar.png::CompressedTexture2D::1057833241695030191::1709577479::1709577636::1::::<><>::
+sRedPickup.png::CompressedTexture2D::141791794699805156::1709577479::1709577636::1::::<><>::
+::res://characters/::1709577484
+main_character.gd::GDScript::-1::1709577479::0::1::::<>CharacterBody2D<>::
+main_character.tscn::PackedScene::5011043871101428132::1709577479::0::1::::<><>::res://characters/main_character.gd<>uid://cdicfmhskcwb1::::res://assets/Modern tiles_Free/Characters_free/Alex_16x16.png
+::res://scenes/::1709577484
+mainScene.tscn::PackedScene::7146781885115382585::1709577479::0::1::::<><>::uid://cdnnfppyhs3oy::::res://characters/main_character.tscn
