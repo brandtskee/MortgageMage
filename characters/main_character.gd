@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var move_speed: float = 100
-@export var starting_direction: Vector2 = Vector2(0, 0.1)
+@export var starting_direction: Vector2 = Vector2(0, 1)
 
 # parameters/Idle/blend_position
 
@@ -31,12 +31,12 @@ func _physics_process(_delta):
 
 func update_animation_parameters(move_input: Vector2):
 	if (move_input != Vector2.ZERO):
+		animation_tree.set("parameters/walk/blend_position", move_input)
 		animation_tree.set("parameters/Idle/blend_position", move_input)
-		animation_tree.set("parameters/Walk/blend_position", move_input)
 
 # choose animation state
 func pick_new_state():
 	if(velocity != Vector2.ZERO):
-		state_machine.travel("walk", false)
+		state_machine.travel("walk")
 	else:
-		state_machine.travel("Idle", false)
+		state_machine.travel("Idle")
