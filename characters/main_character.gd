@@ -37,6 +37,6 @@ func update_animation_parameters(move_input: Vector2):
 # choose animation state
 func pick_new_state():
 	if(velocity != Vector2.ZERO):
-		state_machine.travel("walk")
+		state_machine.travel("walk", false)
 	else:
-		state_machine.travel("Idle")
+		state_machine.travel("Idle", false)
