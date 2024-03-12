@@ -40,3 +40,10 @@ func pick_new_state():
 		state_machine.travel("walk", false)
 	else:
 		state_machine.travel("Idle", false)
+
+
+
+
+func _on_area_2d_area_entered(area):
+	# if player collides with area2d, change scene to main floor
+	get_tree().change_scene_to_file("res://scenes/mainFloor.tscn")

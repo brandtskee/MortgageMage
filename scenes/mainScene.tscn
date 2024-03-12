@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c827poh77ejun"]
+[gd_scene load_steps=8 format=3 uid="uid://c827poh77ejun"]
 
 [ext_resource type="Texture2D" uid="uid://dtbcvxvuxidgw" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_aedqs"]
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="1_mmowb"]
@@ -4117,6 +4117,9 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_rrt1r")
 sources/3 = SubResource("TileSetAtlasSource_22li6")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2hl4"]
+size = Vector2(30, 6)
+
 [node name="StartLevel" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -4133,3 +4136,12 @@ layer_2/tile_data = PackedInt32Array(393238, 720898, 75, 458774, 720898, 76, 393
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_mmowb")]
 position = Vector2(237, 148)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(53, 66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(27, 173)
+shape = SubResource("RectangleShape2D_e2hl4")
+
+[connection signal="area_entered" from="Area2D" to="MainCharacter" method="_on_area_2d_area_entered"]

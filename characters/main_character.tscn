@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cdnnfppyhs3oy"]
+[gd_scene load_steps=29 format=3 uid="uid://cdnnfppyhs3oy"]
 
 [ext_resource type="Script" path="res://characters/main_character.gd" id="1_rt7e3"]
 [ext_resource type="Texture2D" uid="uid://cdicfmhskcwb1" path="res://assets/Modern tiles_Free/Characters_free/Alex_16x16.png" id="2_btoyy"]
@@ -238,6 +238,9 @@ states/walk/position = Vector2(604.3, 108.781)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_gbep2"), "Idle", "walk", SubResource("AnimationNodeStateMachineTransition_0bfoo"), "walk", "Idle", SubResource("AnimationNodeStateMachineTransition_kb4fm")]
 graph_offset = Vector2(-65.7, -19.3875)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p13tp"]
+size = Vector2(14, 23)
+
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_rt7e3")
 
@@ -264,3 +267,9 @@ tree_root = SubResource("AnimationNodeStateMachine_3yo48")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(2.08165e-12, -0.1)
 parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_p13tp")
