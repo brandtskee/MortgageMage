@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://v1l8equlhqp7"]
+
+[ext_resource type="Script" path="res://scripts/BaseEnemy.gd" id="1_o11vu"]
+[ext_resource type="Texture2D" path="res://assets/loanshark_240.png" id="2_5y56c"]
+
+[resource]
+script = ExtResource("1_o11vu")
+name = "Loanshark"
+texture = ExtResource("2_5y56c")
+health = 30
+damage = 5

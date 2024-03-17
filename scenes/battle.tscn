@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://iveooa3p41k5"]
+[gd_scene load_steps=12 format=3 uid="uid://iveooa3p41k5"]
 
+[ext_resource type="Script" path="res://scripts/battle.gd" id="1_bm6tl"]
 [ext_resource type="Texture2D" path="res://assets/battle_background.png" id="1_proax"]
 [ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="2_2ewyl"]
+[ext_resource type="Resource" uid="uid://v1l8equlhqp7" path="res://scripts/Loanshark.tres" id="2_nyllk"]
 [ext_resource type="Texture2D" path="res://assets/loanshark_240.png" id="2_ss0n7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr04t"]
@@ -46,6 +48,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bm6tl")
+enemy = ExtResource("2_nyllk")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -250,3 +254,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_2ewyl")
 text = "A LOANSHARK challenges you to a battle!"
+
+[node name="Ticker" type="Label" parent="Textbox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_2ewyl")
+text = ">"
+
+[connection signal="pressed" from="ActionsPanel/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsPanel/HBoxContainer/Run" to="." method="_on_run_pressed"]
