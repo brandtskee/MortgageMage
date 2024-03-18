@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://i3t0mrfw21x7"]
+[gd_scene load_steps=16 format=3 uid="uid://i3t0mrfw21x7"]
 
 [ext_resource type="Texture2D" uid="uid://ba8isr6vdhcha" path="res://assets/TopDownCityPack/Sprites/sTiles.png" id="1_c8ef3"]
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="2_ka5yr"]
+[ext_resource type="Texture2D" uid="uid://bw40fqgioog11" path="res://assets/shark-sheet.png" id="3_0bmfv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tqw7"]
 texture = ExtResource("1_c8ef3")
@@ -2431,6 +2432,55 @@ sources/1 = SubResource("TileSetAtlasSource_iy6bj")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuaa7"]
 size = Vector2(19, 144)
 
+[sub_resource type="Animation" id="Animation_ydku5"]
+resource_name = "shark_idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_qskgy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bejge"]
+_data = {
+"RESET": SubResource("Animation_qskgy"),
+"shark_idle": SubResource("Animation_ydku5")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_giyff"]
+animation = &"shark_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vad3h"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c2vh6"]
+states/shark_idle/node = SubResource("AnimationNodeAnimation_giyff")
+states/shark_idle/position = Vector2(320.5, 94)
+transitions = ["Start", "shark_idle", SubResource("AnimationNodeStateMachineTransition_vad3h")]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5t3a"]
 size = Vector2(16, 15)
 
@@ -2462,6 +2512,24 @@ offset = Vector2(0, 30)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SharkBoss"]
 position = Vector2(296.5, 110)
 shape = SubResource("RectangleShape2D_tuaa7")
+
+[node name="Sprite2D" type="Sprite2D" parent="SharkBoss"]
+position = Vector2(297, 89)
+scale = Vector2(0.539062, 0.585938)
+texture = ExtResource("3_0bmfv")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SharkBoss"]
+libraries = {
+"": SubResource("AnimationLibrary_bejge")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="SharkBoss"]
+libraries = {
+"": SubResource("AnimationLibrary_bejge")
+}
+tree_root = SubResource("AnimationNodeStateMachine_c2vh6")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="ApartmentDoor" type="Area2D" parent="."]
 
