@@ -41,9 +41,31 @@ func pick_new_state():
 	else:
 		state_machine.travel("Idle", false)
 
+# Transitions: there's almost certainly a better way to do transitions,
+# but this is just for demonstration
 
-
-
+# Go downstairs to main floor
 func _on_area_2d_area_entered(area):
 	# if player collides with area2d, change scene to main floor
 	get_tree().change_scene_to_file("res://scenes/mainFloor.tscn")
+
+# Go back upstairs from to main scene
+func _on_main_floor_upstairs_area_entered(area):
+	get_tree().change_scene_to_file("res://scenes/mainScene.tscn")
+
+# Go outside from main floor
+func _on_main_floor_outside_area_entered(area):
+	get_tree().change_scene_to_file("res://scenes/mainOutside.tscn")
+
+# Go inside apartment to main floor
+func _on_apartment_door_area_entered(area):
+	# if player collides with apartment door in mainOutside, change to room scene
+	get_tree().change_scene_to_file("res://scenes/mainFloor.tscn")
+
+# Start shark boss - add some dialogue before transitioning to fight
+func _on_shark_boss_area_entered(area):
+	# if player collides with area2d in mainOutside, change scene to shark fight
+	print("Entered")
+	get_tree().change_scene_to_file("res://scenes/battle.tscn")
+	# How do we get it so area2d is disabled after boss dies?
+

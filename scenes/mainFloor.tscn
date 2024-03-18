@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8hudxsn20ofx"]
+[gd_scene load_steps=9 format=3 uid="uid://8hudxsn20ofx"]
 
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="1_vu0ci"]
 [ext_resource type="Texture2D" uid="uid://dtbcvxvuxidgw" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="2_f2id3"]
@@ -1374,6 +1374,12 @@ texture = ExtResource("3_1n2s5")
 sources/0 = SubResource("TileSetAtlasSource_iq24m")
 sources/1 = SubResource("TileSetAtlasSource_rpmtu")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhgxf"]
+size = Vector2(30, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1dva"]
+size = Vector2(46, 16)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_vu0ci")]
@@ -1384,6 +1390,21 @@ tile_set = SubResource("TileSet_dx1yi")
 format = 2
 layer_0/name = "Ground(-1)"
 layer_0/z_index = -1
-layer_0/tile_data = PackedInt32Array(262147, 720897, 5, 327683, 720897, 6, 262148, 786433, 5, 327684, 786433, 6, 262149, 851969, 5, 327685, 851969, 6, 262150, 720897, 5, 327686, 720897, 6, 262151, 786433, 5, 327687, 786433, 6, 262152, 851969, 5, 327688, 851969, 6, 262153, 720897, 5, 327689, 720897, 6, 262154, 786433, 5, 327690, 786433, 6, 262155, 851969, 5, 327691, 851969, 6, 393219, 720897, 5, 458755, 720897, 6, 393220, 786433, 5, 458756, 786433, 6, 393221, 851969, 5, 458757, 851969, 6, 393222, 720897, 5, 458758, 720897, 6, 393223, 786433, 5, 458759, 786433, 6, 393224, 851969, 5, 458760, 851969, 6, 393225, 720897, 5, 458761, 720897, 6, 393226, 786433, 5, 458762, 786433, 6, 393227, 851969, 5, 458763, 851969, 6)
+layer_0/tile_data = PackedInt32Array(262147, 720897, 5, 327683, 720897, 6, 262148, 786433, 5, 327684, 786433, 6, 262149, 851969, 5, 327685, 851969, 6, 262150, 720897, 5, 327686, 720897, 6, 262151, 786433, 5, 327687, 786433, 6, 262152, 851969, 5, 327688, 851969, 6, 262153, 720897, 5, 262154, 786433, 5, 327690, 786433, 6, 262155, 851969, 5, 327691, 851969, 6, 393219, 720897, 5, 458755, 720897, 6, 393220, 786433, 5, 458756, 786433, 6, 393221, 851969, 5, 458757, 851969, 6, 393222, 720897, 5, 458758, 720897, 6, 393223, 786433, 5, 458759, 786433, 6, 393224, 851969, 5, 458760, 851969, 6, 393226, 786433, 5, 458762, 786433, 6, 393227, 851969, 5, 458763, 851969, 6, 458761, 720897, 6, 393225, 720897, 5, 327689, 720897, 6, 524295, 786433, 13, 589831, 786433, 14, 524294, 786433, 13, 589830, 786433, 14, 524296, 786433, 13, 589832, 786433, 14, 655366, 786433, 13, 655367, 786433, 13, 655368, 786433, 13, 720904, 786433, 13, 720903, 786433, 13, 720902, 786433, 13)
 layer_1/name = "Fixture(0)"
 layer_1/tile_data = PackedInt32Array(262147, 327680, 3, 327683, 327680, 4, 262148, 393216, 3, 327684, 393216, 4, 262149, 458752, 3, 327685, 458752, 4, 262150, 524288, 3, 327686, 524288, 4)
+
+[node name="MainFloorUpstairs" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainFloorUpstairs"]
+position = Vector2(80, 89.5)
+shape = SubResource("RectangleShape2D_dhgxf")
+
+[node name="MainFloorOutside" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainFloorOutside"]
+position = Vector2(120, 183)
+shape = SubResource("RectangleShape2D_l1dva")
+
+[connection signal="area_entered" from="MainFloorUpstairs" to="MainCharacter" method="_on_main_floor_upstairs_area_entered"]
+[connection signal="area_entered" from="MainFloorOutside" to="MainCharacter" method="_on_main_floor_outside_area_entered"]

@@ -105,7 +105,7 @@ func _on_attack_pressed():
 		
 		# PLACEHOLDER: quits battle when defeated
 		# change to returning to previous scene
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://scenes/mainOutside.tscn")
 		
 	else:	
 		# execute enemy turn after your attack if enemy health greater than 0
