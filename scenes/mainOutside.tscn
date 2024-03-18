@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://i3t0mrfw21x7"]
+[gd_scene load_steps=18 format=3 uid="uid://i3t0mrfw21x7"]
 
 [ext_resource type="Texture2D" uid="uid://ba8isr6vdhcha" path="res://assets/TopDownCityPack/Sprites/sTiles.png" id="1_c8ef3"]
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="2_ka5yr"]
-[ext_resource type="Texture2D" uid="uid://bw40fqgioog11" path="res://assets/shark-sheet.png" id="3_0bmfv"]
+[ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="3_qf562"]
+[ext_resource type="Texture2D" uid="uid://caeg7t5ifcg7i" path="res://Loan-Shark-Sprite.png" id="4_pglih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tqw7"]
 texture = ExtResource("1_c8ef3")
@@ -2429,25 +2430,15 @@ tile_size = Vector2i(12, 12)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_iy6bj")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1om00"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuaa7"]
 size = Vector2(19, 144)
-
-[sub_resource type="Animation" id="Animation_ydku5"]
-resource_name = "shark_idle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
 
 [sub_resource type="Animation" id="Animation_qskgy"]
 length = 0.001
@@ -2464,22 +2455,40 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_ydku5"]
+resource_name = "shark_idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bejge"]
 _data = {
 "RESET": SubResource("Animation_qskgy"),
 "shark_idle": SubResource("Animation_ydku5")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_giyff"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2obg6"]
 animation = &"shark_idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vad3h"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bw7g4"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c2vh6"]
-states/shark_idle/node = SubResource("AnimationNodeAnimation_giyff")
-states/shark_idle/position = Vector2(320.5, 94)
-transitions = ["Start", "shark_idle", SubResource("AnimationNodeStateMachineTransition_vad3h")]
+states/Start/position = Vector2(184.5, 98.125)
+states/shark_idle/node = SubResource("AnimationNodeAnimation_2obg6")
+states/shark_idle/position = Vector2(365.5, 99.0625)
+transitions = ["Start", "shark_idle", SubResource("AnimationNodeStateMachineTransition_bw7g4")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5t3a"]
 size = Vector2(16, 15)
@@ -2507,6 +2516,45 @@ visible = false
 position = Vector2(2.12402, -4.36451)
 offset = Vector2(0, 30)
 
+[node name="Textbox" type="Panel" parent="MainCharacter"]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -171.0
+offset_top = -125.0
+offset_right = 171.0
+offset_bottom = -60.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1om00")
+
+[node name="Label" type="Label" parent="MainCharacter/Textbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_qf562")
+text = "A LOANSHARK challenges you to a battle!"
+
+[node name="Ticker" type="Label" parent="MainCharacter/Textbox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qf562")
+text = ">"
+
 [node name="SharkBoss" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SharkBoss"]
@@ -2516,8 +2564,8 @@ shape = SubResource("RectangleShape2D_tuaa7")
 [node name="Sprite2D" type="Sprite2D" parent="SharkBoss"]
 position = Vector2(297, 89)
 scale = Vector2(0.539062, 0.585938)
-texture = ExtResource("3_0bmfv")
-hframes = 3
+texture = ExtResource("4_pglih")
+hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SharkBoss"]
 libraries = {
