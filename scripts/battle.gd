@@ -4,6 +4,7 @@ signal textbox_closed
 
 var current_player_health = 0
 var current_enemy_health = 0
+var is_defending = false
 
 func _ready():
 	
@@ -46,6 +47,7 @@ func _input(event):
 		emit_signal("textbox_closed")
 
 func display_text(text):
+	$ActionsPanel.hide()
 	$Textbox.show()
 	$Textbox/Label.text = text
 
@@ -55,17 +57,28 @@ func _on_run_pressed():
 	# rapidly hide and show button to defocus so that enter and space can be used
 	deselect_actions()
 	await textbox_closed
+	$ActionsPanel.show()
 
 func enemy_turn():
 	display_text("%s attempts to extort you for more money!" % enemy.name)
 	deselect_actions()
 	await textbox_closed
-	# use max function to ensure health does not go below zero
-	current_player_health = max(0, current_player_health - enemy.damage)
-	set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, State.max_health)
-	$AnimationPlayer.play("shake")
-	display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
-	await textbox_closed
+	
+	if is_defending == true:
+		is_defending = false
+		$AnimationPlayer.play("mini_shake")
+		await "animation_finished"
+		display_text("No damage taken!")
+		await textbox_closed
+	else:
+		# use max function to ensure health does not go below zero
+		current_player_health = max(0, current_player_health - enemy.damage)
+		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, State.max_health)
+		$AnimationPlayer.play("shake")
+		await "animation_finished"
+		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
+		await textbox_closed
+	$ActionsPanel.show()
 
 func _on_attack_pressed():
 	display_text("You attack and do a bit of damage!")
@@ -81,5 +94,29 @@ func _on_attack_pressed():
 	display_text("You did %s damage!" % State.damage)
 	await textbox_closed
 	
-	# execute enemy turn after your attack
+	# do not attack if enemy is defeated
+	if current_enemy_health == 0:
+		display_text("%s was defeated!" % enemy.name)
+		await textbox_closed
+		$AnimationPlayer.play("enemy_defeated")
+		await "animation_finished"
+		
+		await get_tree().create_timer(1).timeout
+		
+		# PLACEHOLDER: quits battle when defeated
+		# change to returning to previous scene
+		get_tree().quit()
+		
+	else:	
+		# execute enemy turn after your attack if enemy health greater than 0
+		enemy_turn()
+
+
+func _on_defend_pressed():
+	is_defending = true
+	display_text("You brace for impact!")
+	deselect_actions()
+	await textbox_closed
+	await get_tree().create_timer(.25).timeout
 	enemy_turn()
+	
