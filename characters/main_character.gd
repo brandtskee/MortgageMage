@@ -77,16 +77,29 @@ func _on_apartment_door_area_entered(area):
 func _on_shark_boss_area_entered(area):
 	# if player collides with area2d in mainOutside, change scene to shark fight
 	# disable movement and set idle animation before battle starts
-	set_physics_process(false)
-	state_machine.travel("Idle", false)
-	print("Entered")
-	display_text("'You think you can show your face\naround here?'")
-	await textbox_closed
-	display_text("'You owe me four thousand dollars in\ninterest fees!'")
-	await textbox_closed
-	display_text("The loanshark appears to be preparing\nto fight...")
-	await textbox_closed
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/battle.tscn")
-	# How do we get it so area2d is disabled after boss dies?
+	
+	# logic if previous battle is WON
+	if State.loan_shark_battle == 1:
+		set_physics_process(false)
+		display_text("'You know what?\nForget about the debt..'")
+		await textbox_closed
+		set_physics_process(true)
+		State.loan_shark_battle = 2
+	
+	# logic if battle has not occurred yet
+	if State.loan_shark_battle == 0:
+		set_physics_process(false)
+		state_machine.travel("Idle", false)
+		print("Entered")
+		display_text("'You think you can show your face\naround here?'")
+		await textbox_closed
+		display_text("'You owe me four thousand dollars in\ninterest fees!'")
+		await textbox_closed
+		display_text("The loanshark appears to be preparing\nto fight...")
+		await textbox_closed
+		await get_tree().create_timer(0.5).timeout
+		State.previous_scene.pack(get_tree().get_current_scene())
+		get_tree().change_scene_to_file("res://scenes/battle.tscn")
+		# How do we get it so area2d is disabled after boss dies?
+		get_node("CollisionShape2D").disabled = true
 

@@ -110,9 +110,9 @@ func _on_attack_pressed():
 		
 		await get_tree().create_timer(1).timeout
 		
-		# PLACEHOLDER: quits battle when defeated
 		# change to returning to previous scene
-		get_tree().change_scene_to_file("res://scenes/mainOutside.tscn")
+		State.loan_shark_battle = 1
+		get_tree().change_scene_to_packed(State.previous_scene)
 		
 	else:	
 		# execute enemy turn after your attack if enemy health greater than 0
