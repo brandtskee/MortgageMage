@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c827poh77ejun"]
+[gd_scene load_steps=10 format=3 uid="uid://c827poh77ejun"]
 
 [ext_resource type="Texture2D" uid="uid://dtbcvxvuxidgw" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_aedqs"]
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="1_mmowb"]
 [ext_resource type="Texture2D" uid="uid://coeb20aaugohf" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="2_p1xpd"]
+[ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="4_wld5g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rrt1r"]
 texture = ExtResource("1_aedqs")
@@ -4117,6 +4118,13 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_rrt1r")
 sources/3 = SubResource("TileSetAtlasSource_22li6")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3srb2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2hl4"]
 size = Vector2(30, 6)
 
@@ -4136,6 +4144,44 @@ layer_2/tile_data = PackedInt32Array(393238, 720898, 75, 458774, 720898, 76, 393
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_mmowb")]
 position = Vector2(237, 148)
+
+[node name="Textbox" type="Panel" parent="MainCharacter"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -171.0
+offset_top = -125.0
+offset_right = 171.0
+offset_bottom = -60.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3srb2")
+
+[node name="Label" type="Label" parent="MainCharacter/Textbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_wld5g")
+text = "Null"
+
+[node name="Ticker" type="Label" parent="MainCharacter/Textbox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_wld5g")
+text = ">"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(53, 66)

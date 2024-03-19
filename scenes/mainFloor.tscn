@@ -1,8 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://8hudxsn20ofx"]
+[gd_scene load_steps=11 format=3 uid="uid://8hudxsn20ofx"]
 
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="1_vu0ci"]
 [ext_resource type="Texture2D" uid="uid://dtbcvxvuxidgw" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="2_f2id3"]
+[ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="2_m0tat"]
 [ext_resource type="Texture2D" uid="uid://coeb20aaugohf" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="3_1n2s5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k3ym"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iq24m"]
 texture = ExtResource("2_f2id3")
@@ -1384,6 +1392,44 @@ size = Vector2(46, 16)
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_vu0ci")]
 position = Vector2(138, 87)
+
+[node name="Textbox" type="Panel" parent="MainCharacter"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -171.0
+offset_top = -125.0
+offset_right = 171.0
+offset_bottom = -60.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8k3ym")
+
+[node name="Label" type="Label" parent="MainCharacter/Textbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_m0tat")
+text = "Null"
+
+[node name="Ticker" type="Label" parent="MainCharacter/Textbox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_m0tat")
+text = ">"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dx1yi")
