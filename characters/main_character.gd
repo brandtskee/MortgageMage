@@ -76,6 +76,9 @@ func _on_apartment_door_area_entered(area):
 # Start shark boss - add some dialogue before transitioning to fight
 func _on_shark_boss_area_entered(area):
 	# if player collides with area2d in mainOutside, change scene to shark fight
+	# disable movement and set idle animation before battle starts
+	set_physics_process(false)
+	state_machine.travel("Idle", false)
 	print("Entered")
 	display_text("'You think you can show your face\naround here?'")
 	await textbox_closed
