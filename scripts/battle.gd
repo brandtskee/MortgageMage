@@ -8,6 +8,8 @@ var is_defending = false
 
 func _ready():
 	
+	$AnimationPlayer.play("shark_idle")
+	
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health)
 	$EnemyContainer/Enemy.texture = enemy.texture
@@ -22,6 +24,14 @@ func _ready():
 	display_text("A %s challenges you to a battle!" % enemy.name)
 	await textbox_closed
 	$ActionsPanel.show()
+
+# use this to play animations and use timeout to resume idle animations
+func play_animation(animation, timer):
+	$AnimationPlayer.play(animation)
+	await "animation_finished"
+	await get_tree().create_timer(timer).timeout
+	$AnimationPlayer.play("shark_idle")
+	
 
 # use this function after displaying textbox to allow for pressing action button without
 # accidentally selecting the previous action again
@@ -66,16 +76,14 @@ func enemy_turn():
 	
 	if is_defending == true:
 		is_defending = false
-		$AnimationPlayer.play("mini_shake")
-		await "animation_finished"
+		play_animation("mini_shake", 0.6)
 		display_text("No damage taken!")
 		await textbox_closed
 	else:
 		# use max function to ensure health does not go below zero
 		current_player_health = max(0, current_player_health - enemy.damage)
 		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, State.max_health)
-		$AnimationPlayer.play("shake")
-		await "animation_finished"
+		play_animation("shake", 0.6)
 		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 		await textbox_closed
 	$ActionsPanel.show()
@@ -88,8 +96,7 @@ func _on_attack_pressed():
 	current_enemy_health = max(0, current_enemy_health - State.damage)
 	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 	# play enemy damaged animation
-	$AnimationPlayer.play("enemy_damaged")
-	await "animation_finished"
+	play_animation("enemy_damaged", 0.4)
 	
 	display_text("You did %s damage!" % State.damage)
 	await textbox_closed

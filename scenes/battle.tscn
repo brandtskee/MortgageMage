@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://iveooa3p41k5"]
+[gd_scene load_steps=20 format=3 uid="uid://iveooa3p41k5"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_bm6tl"]
 [ext_resource type="Texture2D" uid="uid://ctgxdxtv25d4g" path="res://assets/battle_background.png" id="1_proax"]
 [ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="2_2ewyl"]
 [ext_resource type="Resource" uid="uid://v1l8equlhqp7" path="res://scripts/Loanshark.tres" id="2_nyllk"]
 [ext_resource type="Texture2D" uid="uid://b4w0gvkvjheqh" path="res://assets/loanshark_240.png" id="2_ss0n7"]
+[ext_resource type="Texture2D" uid="uid://caeg7t5ifcg7i" path="res://Loan-Shark-Sprite.png" id="6_lq3i8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr04t"]
 bg_color = Color(0.760784, 0, 0.188235, 1)
@@ -79,6 +80,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyContainer/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemyContainer/Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_w78hx"]
 resource_name = "enemy_damaged"
@@ -90,6 +115,18 @@ tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyContainer/Sprite2D:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
@@ -143,13 +180,31 @@ tracks/0/keys = {
 "values": [Vector2(-7, -7), Vector2(8, 8), Vector2(-5, 6), Vector2(5, -4), Vector2(5, -4), Vector2(4, 5), Vector2(2.08165e-12, 2.08165e-12)]
 }
 
+[sub_resource type="Animation" id="Animation_6mgtq"]
+resource_name = "shark_idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ldbcl"]
 _data = {
 "RESET": SubResource("Animation_j2gbe"),
 "enemy_damaged": SubResource("Animation_w78hx"),
 "enemy_defeated": SubResource("Animation_qo15w"),
 "mini_shake": SubResource("Animation_8r4p7"),
-"shake": SubResource("Animation_4r2mi")
+"shake": SubResource("Animation_4r2mi"),
+"shark_idle": SubResource("Animation_6mgtq")
 }
 
 [node name="Battle" type="Control"]
@@ -218,10 +273,17 @@ text = "HP: 25/50
 horizontal_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_ss0n7")
 stretch_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyContainer"]
+position = Vector2(130, 136)
+scale = Vector2(3.25, 3.46875)
+texture = ExtResource("6_lq3i8")
+hframes = 5
 
 [node name="PlayerPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 32)
