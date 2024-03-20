@@ -54,6 +54,7 @@ func set_health(progress_bar, health, max_health):
 func _input(event):
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $Textbox.visible:
 		$Textbox.hide()
+		$UIsound.play()
 		emit_signal("textbox_closed")
 
 func display_text(text):

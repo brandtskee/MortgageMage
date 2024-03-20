@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://8hudxsn20ofx"]
+[gd_scene load_steps=12 format=3 uid="uid://8hudxsn20ofx"]
 
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="1_vu0ci"]
 [ext_resource type="Texture2D" uid="uid://dtbcvxvuxidgw" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="2_f2id3"]
 [ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="2_m0tat"]
 [ext_resource type="Texture2D" uid="uid://coeb20aaugohf" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="3_1n2s5"]
+[ext_resource type="AudioStream" uid="uid://c134ylxltnkma" path="res://assets/audio/ui.mp3" id="3_tq4cu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k3ym"]
 bg_color = Color(0, 0, 0, 1)
@@ -1430,6 +1431,9 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_m0tat")
 text = ">"
+
+[node name="UIsound" type="AudioStreamPlayer" parent="MainCharacter"]
+stream = ExtResource("3_tq4cu")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dx1yi")

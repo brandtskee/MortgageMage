@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://iveooa3p41k5"]
+[gd_scene load_steps=21 format=3 uid="uid://iveooa3p41k5"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_bm6tl"]
 [ext_resource type="Texture2D" uid="uid://ctgxdxtv25d4g" path="res://assets/battle_background.png" id="1_proax"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://v1l8equlhqp7" path="res://scripts/Loanshark.tres" id="2_nyllk"]
 [ext_resource type="Texture2D" uid="uid://b4w0gvkvjheqh" path="res://assets/loanshark_240.png" id="2_ss0n7"]
 [ext_resource type="Texture2D" uid="uid://caeg7t5ifcg7i" path="res://Loan-Shark-Sprite.png" id="6_lq3i8"]
+[ext_resource type="AudioStream" uid="uid://c134ylxltnkma" path="res://assets/audio/ui.mp3" id="7_0fqs1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr04t"]
 bg_color = Color(0.760784, 0, 0.188235, 1)
@@ -450,6 +451,9 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="UIsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0fqs1")
 
 [connection signal="pressed" from="ActionsPanel/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionsPanel/HBoxContainer/Defend" to="." method="_on_defend_pressed"]

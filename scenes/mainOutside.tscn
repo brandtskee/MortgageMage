@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://i3t0mrfw21x7"]
+[gd_scene load_steps=19 format=3 uid="uid://i3t0mrfw21x7"]
 
 [ext_resource type="Texture2D" uid="uid://ba8isr6vdhcha" path="res://assets/TopDownCityPack/Sprites/sTiles.png" id="1_c8ef3"]
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="2_ka5yr"]
 [ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="3_qf562"]
 [ext_resource type="Texture2D" uid="uid://caeg7t5ifcg7i" path="res://Loan-Shark-Sprite.png" id="4_pglih"]
+[ext_resource type="AudioStream" uid="uid://c134ylxltnkma" path="res://assets/audio/ui.mp3" id="5_fp087"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tqw7"]
 texture = ExtResource("1_c8ef3")
@@ -2510,6 +2511,9 @@ layer_0/tile_data = PackedInt32Array(-327680, 1572865, 1, 196604, 327681, 15, -2
 [node name="MainCharacter" parent="." instance=ExtResource("2_ka5yr")]
 position = Vector2(-492, 18)
 move_speed = 200.0
+
+[node name="UIsound" type="AudioStreamPlayer" parent="MainCharacter"]
+stream = ExtResource("5_fp087")
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
 visible = false
