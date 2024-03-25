@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c827poh77ejun"]
+[gd_scene load_steps=15 format=3 uid="uid://c827poh77ejun"]
 
+[ext_resource type="Script" path="res://scripts/mainScene.gd" id="1_34eax"]
 [ext_resource type="Texture2D" uid="uid://dtbcvxvuxidgw" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_aedqs"]
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="1_mmowb"]
 [ext_resource type="Texture2D" uid="uid://coeb20aaugohf" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="2_p1xpd"]
@@ -4129,7 +4130,26 @@ border_width_bottom = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2hl4"]
 size = Vector2(30, 6)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cq858"]
+bg_color = Color(0, 0, 0, 0.627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37pus"]
+bg_color = Color(0.760784, 0, 0.188235, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh0bg"]
+bg_color = Color(0, 0.698039, 0.145098, 1)
+
 [node name="StartLevel" type="Node2D"]
+script = ExtResource("1_34eax")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2xqde")
@@ -4193,5 +4213,65 @@ position = Vector2(53, 66)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(27, 173)
 shape = SubResource("RectangleShape2D_e2hl4")
+
+[node name="PlayerPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 328.0
+offset_right = 480.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cq858")
+
+[node name="PlayerData" type="HBoxContainer" parent="PlayerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_wld5g")
+text = "PLAYER"
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_37pus")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kh0bg")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_wld5g")
+text = "HP: 25/50
+"
+horizontal_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="MainCharacter" method="_on_area_2d_area_entered"]

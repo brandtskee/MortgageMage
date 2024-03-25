@@ -103,4 +103,10 @@ func _on_shark_boss_area_entered(area):
 		get_tree().change_scene_to_file("res://scenes/battle.tscn")
 		# How do we get it so area2d is disabled after boss dies?
 		get_node("CollisionShape2D").disabled = true
+		
+		
+func set_health(progress_bar, health, max_health):
+	progress_bar.value = health
+	progress_bar.max_value = max_health
+	progress_bar.get_node("Label").text = "HP: %d/%d" % [health, max_health]
 

@@ -105,6 +105,7 @@ func _on_attack_pressed():
 	# do not attack if enemy is defeated
 	if current_enemy_health == 0:
 		display_text("%s was defeated!" % enemy.name)
+		State.current_health = current_player_health
 		await textbox_closed
 		$AnimationPlayer.play("enemy_defeated")
 		await "animation_finished"
