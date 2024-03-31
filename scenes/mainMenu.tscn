@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://of6rtdqkd75c"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_hkonm"]
-[ext_resource type="Texture2D" uid="uid://bsqrj0yflmtpl" path="res://assets/logo.png" id="2_8spw1"]
+[ext_resource type="Texture2D" uid="uid://dc3cekrxcil7b" path="res://assets/logo.png" id="2_8spw1"]
 [ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="2_e4x68"]
-[ext_resource type="Texture2D" uid="uid://502vgw5fucgj" path="res://assets/menu_background.jpg" id="4_h0d34"]
-[ext_resource type="AudioStream" uid="uid://c134ylxltnkma" path="res://assets/audio/ui.mp3" id="5_t0ed1"]
+[ext_resource type="Texture2D" uid="uid://d16vx5r25e5c3" path="res://assets/menu_background.jpg" id="4_h0d34"]
+[ext_resource type="AudioStream" uid="uid://hiagpnx5ce5j" path="res://assets/audio/ui.mp3" id="5_t0ed1"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
