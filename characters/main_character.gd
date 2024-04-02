@@ -119,6 +119,7 @@ func _on_desert_to_outside_area_entered(area):
 
 func _on_tutorial_area_area_entered(area):
 	if State.tutorial_passed == 0:
+		MusicController.play_background()
 		set_physics_process(false)
 		display_text("*Yawn* (I don't wanna go to work...)")
 		await textbox_closed

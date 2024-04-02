@@ -23,6 +23,7 @@ buses/size/mode=2
 [autoload]
 
 State="*res://scripts/State.gd"
+MusicController="*res://autoload/MusicController.tscn"
 
 [display]
 
