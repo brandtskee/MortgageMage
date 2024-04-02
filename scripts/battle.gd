@@ -114,6 +114,8 @@ func _on_attack_pressed():
 		
 		# change to returning to previous scene
 		State.loan_shark_battle = 1
+		MusicController.stop()
+		MusicController.play_background()
 		get_tree().change_scene_to_packed(State.previous_scene)
 		
 	else:	

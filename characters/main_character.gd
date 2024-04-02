@@ -89,6 +89,7 @@ func _on_shark_boss_area_entered(area):
 	
 	# logic if battle has not occurred yet
 	if State.loan_shark_battle == 0:
+		MusicController.stop()
 		set_physics_process(false)
 		state_machine.travel("Idle", false)
 		print("Entered")
@@ -100,6 +101,7 @@ func _on_shark_boss_area_entered(area):
 		await textbox_closed
 		await get_tree().create_timer(0.5).timeout
 		State.previous_scene.pack(get_tree().get_current_scene())
+		MusicController.play_battle()
 		get_tree().change_scene_to_file("res://scenes/battle.tscn")
 		# How do we get it so area2d is disabled after boss dies?
 		get_node("CollisionShape2D").disabled = true
