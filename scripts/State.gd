@@ -7,5 +7,5 @@ var damage = 20
 # scene info
 var previous_scene = PackedScene.new()
 var loan_shark_battle = 0
-
+var tutorial_passed = 0
 

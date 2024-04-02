@@ -59,7 +59,7 @@ func pick_new_state():
 # Go downstairs to main floor
 func _on_area_2d_area_entered(area):
 	# if player collides with area2d, change scene to main floor
-	get_tree().change_scene_to_file("res://scenes/mainFloor.tscn")
+	get_tree().change_scene_to_file("res://scenes/mainOutside.tscn")
 
 # Go back upstairs from to main scene
 func _on_main_floor_upstairs_area_entered(area):
@@ -72,7 +72,7 @@ func _on_main_floor_outside_area_entered(area):
 # Go inside apartment to main floor
 func _on_apartment_door_area_entered(area):
 	# if player collides with apartment door in mainOutside, change to room scene
-	get_tree().change_scene_to_file("res://scenes/mainFloor.tscn")
+	get_tree().change_scene_to_file("res://scenes/mainScene.tscn")
 
 # Start shark boss - add some dialogue before transitioning to fight
 func _on_shark_boss_area_entered(area):
@@ -115,3 +115,14 @@ func set_health(progress_bar, health, max_health):
 
 func _on_desert_to_outside_area_entered(area):
 	get_tree().change_scene_to_file("res://scenes/mainOutside.tscn")
+
+
+func _on_tutorial_area_area_entered(area):
+	if State.tutorial_passed == 0:
+		set_physics_process(false)
+		display_text("*Yawn* (I don't wanna go to work...)")
+		await textbox_closed
+		display_text("PRESS WASD KEYS TO MOVE")
+		await textbox_closed
+		set_physics_process(true)
+		State.tutorial_passed = 1

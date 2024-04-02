@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://c827poh77ejun"]
+[gd_scene load_steps=16 format=3 uid="uid://c827poh77ejun"]
 
 [ext_resource type="Script" path="res://scripts/mainScene.gd" id="1_34eax"]
 [ext_resource type="Texture2D" uid="uid://dtbcvxvuxidgw" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_aedqs"]
 [ext_resource type="PackedScene" uid="uid://cdnnfppyhs3oy" path="res://characters/main_character.tscn" id="1_mmowb"]
 [ext_resource type="Texture2D" uid="uid://coeb20aaugohf" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="2_p1xpd"]
 [ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="4_wld5g"]
-[ext_resource type="AudioStream" uid="uid://c134ylxltnkma" path="res://assets/audio/ui.mp3" id="5_o531c"]
+[ext_resource type="AudioStream" uid="uid://ce6tcpg4cwdlv" path="res://assets/audio/ui.mp3" id="5_o531c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rrt1r"]
 texture = ExtResource("1_aedqs")
@@ -4148,6 +4148,9 @@ expand_margin_bottom = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh0bg"]
 bg_color = Color(0, 0.698039, 0.145098, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf4v2"]
+size = Vector2(26, 32)
+
 [node name="StartLevel" type="Node2D"]
 script = ExtResource("1_34eax")
 
@@ -4274,4 +4277,11 @@ text = "HP: 25/50
 "
 horizontal_alignment = 1
 
+[node name="TutorialArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialArea"]
+position = Vector2(237, 153)
+shape = SubResource("RectangleShape2D_tf4v2")
+
 [connection signal="area_entered" from="Area2D" to="MainCharacter" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="TutorialArea" to="MainCharacter" method="_on_tutorial_area_area_entered"]
