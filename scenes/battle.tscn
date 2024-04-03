@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://iveooa3p41k5"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_bm6tl"]
-[ext_resource type="Texture2D" uid="uid://ctgxdxtv25d4g" path="res://assets/battle_background.png" id="1_proax"]
+[ext_resource type="Texture2D" uid="uid://b8qcyvvenv4wi" path="res://assets/battle_background.png" id="1_proax"]
 [ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="2_2ewyl"]
 [ext_resource type="Resource" uid="uid://v1l8equlhqp7" path="res://scripts/Loanshark.tres" id="2_nyllk"]
-[ext_resource type="Texture2D" uid="uid://b4w0gvkvjheqh" path="res://assets/loanshark_240.png" id="2_ss0n7"]
+[ext_resource type="Texture2D" uid="uid://rag5juxxh5rv" path="res://assets/loanshark_240.png" id="2_ss0n7"]
 [ext_resource type="Texture2D" uid="uid://ck11w3mrsyrgw" path="res://Loan-Shark-Sprite.png" id="6_lq3i8"]
 [ext_resource type="AudioStream" uid="uid://hiagpnx5ce5j" path="res://assets/audio/ui.mp3" id="7_0fqs1"]
 
