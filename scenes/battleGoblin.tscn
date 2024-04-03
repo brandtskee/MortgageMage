@@ -1,14 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://iveooa3p41k5"]
+[gd_scene load_steps=21 format=3 uid="uid://ce28h271q8n1n"]
 
-[ext_resource type="Script" path="res://scripts/battle.gd" id="1_bm6tl"]
-[ext_resource type="Texture2D" uid="uid://ctgxdxtv25d4g" path="res://assets/battle_background.png" id="1_proax"]
-[ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="2_2ewyl"]
-[ext_resource type="Resource" uid="uid://v1l8equlhqp7" path="res://scripts/Loanshark.tres" id="2_nyllk"]
-[ext_resource type="Texture2D" uid="uid://b4w0gvkvjheqh" path="res://assets/loanshark_240.png" id="2_ss0n7"]
-[ext_resource type="Texture2D" uid="uid://ck11w3mrsyrgw" path="res://Loan-Shark-Sprite.png" id="6_lq3i8"]
-[ext_resource type="AudioStream" uid="uid://hiagpnx5ce5j" path="res://assets/audio/ui.mp3" id="7_0fqs1"]
+[ext_resource type="Script" path="res://scripts/goblinBattle.gd" id="1_aol6i"]
+[ext_resource type="Resource" uid="uid://cl0hh3m6dchft" path="res://scripts/Goblin.tres" id="2_60sy1"]
+[ext_resource type="Texture2D" uid="uid://ctgxdxtv25d4g" path="res://assets/battle_background.png" id="3_bm0er"]
+[ext_resource type="FontFile" uid="uid://clqo77ycctryv" path="res://fonts/NES_UI.tres" id="4_8fl1p"]
+[ext_resource type="Texture2D" uid="uid://jfsvdpn6lxn5" path="res://assets/goblin-large.png" id="5_gnw0x"]
+[ext_resource type="Texture2D" uid="uid://jesnjkcgm6cr" path="res://assets/Goblin-Sprite.png" id="6_yl74d"]
+[ext_resource type="AudioStream" uid="uid://hiagpnx5ce5j" path="res://assets/audio/ui.mp3" id="7_s6ht7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr04t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_200q1"]
 bg_color = Color(0.760784, 0, 0.188235, 1)
 border_width_left = 1
 border_width_top = 1
@@ -20,23 +20,23 @@ expand_margin_top = 1.0
 expand_margin_right = 1.0
 expand_margin_bottom = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lq3pw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npjig"]
 bg_color = Color(0, 0.698039, 0.145098, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bustk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47qes"]
 bg_color = Color(0, 0, 0, 0.627451)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi6pn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5705"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_788ah"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7c7u"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ima8j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mso6k"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -149,6 +149,23 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_6mgtq"]
+resource_name = "goblin_idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="Animation" id="Animation_8r4p7"]
 resource_name = "mini_shake"
 length = 0.6
@@ -181,42 +198,25 @@ tracks/0/keys = {
 "values": [Vector2(-7, -7), Vector2(8, 8), Vector2(-5, 6), Vector2(5, -4), Vector2(5, -4), Vector2(4, 5), Vector2(2.08165e-12, 2.08165e-12)]
 }
 
-[sub_resource type="Animation" id="Animation_6mgtq"]
-resource_name = "shark_idle"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyContainer/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ldbcl"]
 _data = {
 "RESET": SubResource("Animation_j2gbe"),
 "enemy_damaged": SubResource("Animation_w78hx"),
 "enemy_defeated": SubResource("Animation_qo15w"),
+"goblin_idle": SubResource("Animation_6mgtq"),
 "mini_shake": SubResource("Animation_8r4p7"),
-"shake": SubResource("Animation_4r2mi"),
-"shark_idle": SubResource("Animation_6mgtq")
+"shake": SubResource("Animation_4r2mi")
 }
 
-[node name="Battle" type="Control"]
+[node name="BattleGoblin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bm6tl")
-enemy = ExtResource("2_nyllk")
+script = ExtResource("1_aol6i")
+enemy = ExtResource("2_60sy1")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -231,7 +231,7 @@ offset_right = 680.0
 offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_proax")
+texture = ExtResource("3_bm0er")
 expand_mode = 2
 stretch_mode = 4
 
@@ -242,18 +242,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -130.0
-offset_right = 120.0
-offset_bottom = 130.0
+offset_left = -239.0
+offset_top = -271.0
+offset_right = 239.0
+offset_bottom = 271.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="EnemyContainer"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_pr04t")
-theme_override_styles/fill = SubResource("StyleBoxFlat_lq3pw")
+theme_override_styles/background = SubResource("StyleBoxFlat_200q1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_npjig")
 step = 1.0
 value = 50.0
 show_percentage = false
@@ -268,7 +268,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("2_2ewyl")
+theme_override_fonts/font = ExtResource("4_8fl1p")
 text = "HP: 25/50
 "
 horizontal_alignment = 1
@@ -277,14 +277,13 @@ horizontal_alignment = 1
 visible = false
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("2_ss0n7")
-stretch_mode = 3
+texture = ExtResource("5_gnw0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyContainer"]
-position = Vector2(130, 136)
-scale = Vector2(3.25, 3.46875)
-texture = ExtResource("6_lq3i8")
-hframes = 5
+position = Vector2(235, 326)
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("6_yl74d")
+hframes = 3
 
 [node name="PlayerPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 32)
@@ -295,7 +294,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bustk")
+theme_override_styles/panel = SubResource("StyleBoxFlat_47qes")
 
 [node name="PlayerData" type="HBoxContainer" parent="PlayerPanel"]
 layout_mode = 1
@@ -315,7 +314,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_2ewyl")
+theme_override_fonts/font = ExtResource("4_8fl1p")
 text = "PLAYER"
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
@@ -323,8 +322,8 @@ custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_styles/background = SubResource("StyleBoxFlat_pr04t")
-theme_override_styles/fill = SubResource("StyleBoxFlat_lq3pw")
+theme_override_styles/background = SubResource("StyleBoxFlat_200q1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_npjig")
 step = 1.0
 value = 50.0
 show_percentage = false
@@ -339,7 +338,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("2_2ewyl")
+theme_override_fonts/font = ExtResource("4_8fl1p")
 text = "HP: 25/50
 "
 horizontal_alignment = 1
@@ -350,7 +349,7 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bustk")
+theme_override_styles/panel = SubResource("StyleBoxFlat_47qes")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ActionsPanel"]
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
@@ -373,10 +372,10 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_2ewyl")
-theme_override_styles/normal = SubResource("StyleBoxFlat_xi6pn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_788ah")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_788ah")
+theme_override_fonts/font = ExtResource("4_8fl1p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p5705")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g7c7u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g7c7u")
 text = "ATTACK"
 
 [node name="Defend" type="Button" parent="ActionsPanel/HBoxContainer"]
@@ -386,10 +385,10 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_2ewyl")
-theme_override_styles/normal = SubResource("StyleBoxFlat_xi6pn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_788ah")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_788ah")
+theme_override_fonts/font = ExtResource("4_8fl1p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p5705")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g7c7u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g7c7u")
 text = "DEFEND"
 
 [node name="Run" type="Button" parent="ActionsPanel/HBoxContainer"]
@@ -399,10 +398,10 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_2ewyl")
-theme_override_styles/normal = SubResource("StyleBoxFlat_xi6pn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_788ah")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_788ah")
+theme_override_fonts/font = ExtResource("4_8fl1p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p5705")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g7c7u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g7c7u")
 text = "RUN"
 
 [node name="Textbox" type="Panel" parent="."]
@@ -414,7 +413,7 @@ offset_top = 7.0
 offset_right = -8.0
 offset_bottom = 72.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ima8j")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mso6k")
 
 [node name="Label" type="Label" parent="Textbox"]
 layout_mode = 1
@@ -427,8 +426,8 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_2ewyl")
-text = "A LOANSHARK challenges you to a battle!"
+theme_override_fonts/font = ExtResource("4_8fl1p")
+text = "A Greedy Goblin challenges you to a battle!"
 
 [node name="Ticker" type="Label" parent="Textbox"]
 layout_mode = 1
@@ -441,19 +440,20 @@ offset_left = -12.0
 offset_top = -19.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_2ewyl")
+theme_override_fonts/font = ExtResource("4_8fl1p")
 text = ">"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationGoblin" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ldbcl")
 }
+autoplay = "RESET"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
 [node name="UIsound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_0fqs1")
+stream = ExtResource("7_s6ht7")
 
 [connection signal="pressed" from="ActionsPanel/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionsPanel/HBoxContainer/Defend" to="." method="_on_defend_pressed"]
