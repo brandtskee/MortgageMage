@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cl0hh3m6dchft"]
+
+[ext_resource type="Script" path="res://scripts/BaseEnemy.gd" id="1_6ma3r"]
+[ext_resource type="Texture2D" uid="uid://jfsvdpn6lxn5" path="res://assets/goblin-large.png" id="2_bcxhu"]
+
+[resource]
+script = ExtResource("1_6ma3r")
+name = "Greedy Goblin"
+texture = ExtResource("2_bcxhu")
+health = 21
+damage = 20

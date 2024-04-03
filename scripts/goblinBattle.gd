@@ -8,7 +8,7 @@ var is_defending = false
 
 func _ready():
 	
-	$AnimationPlayer.play("shark_idle")
+	$AnimationGoblin.play("goblin_idle")
 	
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health)
@@ -21,17 +21,16 @@ func _ready():
 	$Textbox.hide()
 	$ActionsPanel.hide()
 	
-	display_text("A %s challenges you to a battle!" % enemy.name)
+	display_text("%s challenges you to a battle!" % enemy.name)
 	await textbox_closed
 	$ActionsPanel.show()
 
 # use this to play animations and use timeout to resume idle animations
 func play_animation(animation, timer):
-	$AnimationPlayer.play(animation)
+	$AnimationGoblin.play(animation)
 	await "animation_finished"
 	await get_tree().create_timer(timer).timeout
-	$AnimationPlayer.play("shark_idle")
-	
+	$AnimationGoblin.play("goblin_idle")
 
 # use this function after displaying textbox to allow for pressing action button without
 # accidentally selecting the previous action again
@@ -70,7 +69,7 @@ func _on_run_pressed():
 	$ActionsPanel.show()
 
 func enemy_turn():
-	display_text("%s attempts to extort you for more money!" % enemy.name)
+	display_text("%s flashes their watch!" % enemy.name)
 	deselect_actions()
 	await textbox_closed
 	
@@ -106,13 +105,13 @@ func _on_attack_pressed():
 		display_text("%s was defeated!" % enemy.name)
 		State.current_health = current_player_health
 		await textbox_closed
-		$AnimationPlayer.play("enemy_defeated")
+		$AnimationGoblin.play("enemy_defeated")
 		await "animation_finished"
 		
 		await get_tree().create_timer(1).timeout
 		
 		# change to returning to previous scene
-		State.loan_shark_battle = 1
+		State.goblin_battle = 1
 		MusicController.stop()
 		MusicController.play_background()
 		get_tree().change_scene_to_packed(State.previous_scene)
